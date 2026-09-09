@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIX 실무 교육과정 · SBS아카데미AIX학원 강남점</title>
+<style>
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+  }
+
+  :root {
+    --ivory: #EBDCC0;
+    --cream: #FBF6ED;
+    --ink: #241C19;
+    --maroon: #7C2340;
+    --maroon-deep: #5A1830;
+    --gold: #B9862A;
+    --gold-deep: #8C6720;
+    --gold-tint: #F5E7C6;
+    --line: #D4BE93;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: 'Pretendard', -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold-deep); outline-offset: 3px; }
+
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  header.site {
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--gold-deep);
+    margin-bottom: 22px;
+  }
+
+  header.site h1 {
+    font-size: clamp(30px, 4.6vw, 42px);
+    font-weight: 700;
+    line-height: 1.28;
+    margin: 0 0 14px;
+    max-width: 14ch;
+  }
+
+  header.site p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #4A403A;
+    max-width: 46ch;
+    margin: 0;
+  }
+
+  .category {
+    padding: 56px 0 24px;
+  }
+
+  .category-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .category-head h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .category-head span {
+    font-size: 13px;
+    color: #8A7A6E;
+  }
+
+  .instructor {
+    padding: 48px 0 8px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .instructor-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 4px;
+  }
+
+  .instructor-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .instructor-role {
+    font-size: 13px;
+    color: var(--gold-deep);
+    margin-bottom: 18px;
+  }
+
+  .instructor-lede {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #4A403A;
+    max-width: 62ch;
+    margin: 0 0 32px;
+  }
+
+  .instructor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+  }
+
+  .mini-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 12px;
+  }
+
+  .cred-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 2;
+    color: #4A403A;
+  }
+
+  .cred-list span {
+    color: #8A7A6E;
+    font-size: 12px;
+    margin-left: 6px;
+  }
+
+  .cred-list.wide {
+    padding-bottom: 40px;
+    line-height: 1.9;
+  }
+
+  @media (max-width: 720px) {
+    .instructor-grid { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  .modules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .module-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 30px 28px 26px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .module-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .module-icon {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 20px;
+    color: var(--maroon);
+  }
+  .module-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .module-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 10px;
+  }
+
+  .module-card p.desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #52463F;
+    margin: 0 0 20px;
+    flex-grow: 1;
+  }
+
+  .module-meta {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .tag {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gold-deep);
+    background: var(--gold-tint);
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+
+  .module-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--maroon);
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  .module-link .arrow {
+    transition: transform 0.15s ease;
+  }
+
+  .module-card:hover .module-link .arrow {
+    transform: translateX(3px);
+  }
+
+  footer.site {
+    padding: 48px 0 64px;
+    border-top: 1px solid var(--line);
+    margin-top: 40px;
+    font-size: 13px;
+    color: #9A8A7E;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 720px) {
+    .modules { grid-template-columns: 1fr; }
+    header.site { padding: 48px 0 36px; }
+    .category { padding: 40px 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="site">
+    <div class="brand">SBS아카데미AIX학원 강남점</div>
+    <h1>AIX 실무 교육과정 커리큘럼</h1>
+    <p>AI 도구를 활용한 디자인 실무 교육과정 모듈입니다. 각 모듈을 선택하면 16차시 커리큘럼 슬라이드로 이동합니다.</p>
+  </header>
+
+  <section class="instructor">
+    <div class="category-head">
+      <h2>강사 소개</h2>
+    </div>
+    <div class="instructor-head">
+      <div>
+        <div class="instructor-name">황예진 · Hwang Yejin</div>
+        <div class="instructor-role">강사, SBS아카데미AIX학원 강남점</div>
+      </div>
+    </div>
+    <div class="instructor-grid">
+      <div>
+        <div class="mini-label">Education</div>
+        <ul class="cred-list">
+          <li>서울여자대학교 시각디자인학과 학사 졸업 <span>2010–2014</span></li>
+          <li>국민대학교 교육대학원 디자인·공예교육 석사 졸업 <span>2015–2018</span></li>
+          <li>중등 정교사1급 자격증 취득 <span>2022</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="mini-label">Career</div>
+        <ul class="cred-list">
+          <li>(주)AGI Society 편집디자이너 재직 <span>2015</span></li>
+          <li>(주)스킨푸드 그래픽디자이너 재직 <span>2016</span></li>
+          <li>예림디자인고등학교 시각디자인과 교사 재직 <span>2019–2022</span></li>
+          <li>SBS 컴퓨터아카데미 강남점 광고편집학과 강사 재직 <span>2022–현재</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mini-label">Experience</div>
+    <ul class="cred-list wide">
+      <li>· 울산시교육청 생각하는 질문노트 교사용 가이드북 AI 캐릭터 키링 디자인 제작 및 납품 (2026)</li>
+      <li>· 한국수력원자력 변화관리 네컷만화 프로젝트 참여 (2025)</li>
+      <li>· 울산시교육청 인공지능(AI) 교수학습 플랫폼 콘퍼런스 디자인 및 우리아이(AI) 캐릭터 개발 (2024–25)</li>
+      <li>· 서울시립과학관 메이커페어 2024 행사 디자인 및 마케팅 총괄 (2024)</li>
+      <li>· 서초구청 사회적경제 문화예술 청년창업 프로젝트 정부지원사업 선정 및 참여 (2023)</li>
+    </ul>
+  </section>
+
+  <section class="category">
+    <div class="category-head">
+      <h2>커리큘럼 모듈</h2>
+      <span>16차시 · 48H 구성</span>
+    </div>
+
+    <div class="modules">
+
+      <a class="module-card" href="modules/module-03-digital-publishing.html">
+        <div class="module-icon">
+          <svg viewBox="0 0 48 48">
+            <path d="M24 12 C18 9 10 9 6 11 V37 C10 35 18 35 24 38 C30 35 38 35 42 37 V11 C38 9 30 9 24 12 Z"/>
+            <line x1="24" y1="12" x2="24" y2="38"/>
+            <line x1="11" y1="16" x2="19" y2="15"/>
+            <line x1="11" y1="21" x2="19" y2="20"/>
+            <line x1="11" y1="26" x2="19" y2="25"/>
+            <line x1="29" y1="15" x2="37" y2="16"/>
+            <line x1="29" y1="20" x2="37" y2="21"/>
+            <line x1="29" y1="25" x2="37" y2="26"/>
+          </svg>
+        </div>
+        <h3>AIX 디지털 출판 실무</h3>
+        <p class="desc">인디자인 기반 편집디자인 실무 과정. 카드뉴스와 리플렛 제작을 거쳐 독립출판물(단행본) 기획부터 인쇄·전자책 완성까지 다룹니다.</p>
+        <div class="module-meta">
+          <span class="tag">편집디자인</span>
+          <span class="tag">인디자인</span>
+        </div>
+        <div class="module-link">커리큘럼 보기 <span class="arrow">›</span></div>
+      </a>
+
+      <a class="module-card" href="modules/module-04-package-goods.html">
+        <div class="module-icon">
+          <svg viewBox="0 0 48 48">
+            <path d="M8 18 L24 10 L40 18 L40 36 L24 44 L8 36 Z"/>
+            <path d="M8 18 L24 26 L40 18"/>
+            <line x1="24" y1="26" x2="24" y2="44"/>
+            <path d="M18 10 L24 6 L30 10"/>
+          </svg>
+        </div>
+        <h3>AIX 패키지 & 굿즈 제작실무</h3>
+        <p class="desc">패키지 이론과 기획부터 구조 설계, 그래픽 디자인, 인쇄·목업, 브랜드 굿즈 제작까지 이어지는 실무 과정입니다.</p>
+        <div class="module-meta">
+          <span class="tag">패키지디자인</span>
+          <span class="tag">굿즈제작</span>
+        </div>
+        <div class="module-link">커리큘럼 보기 <span class="arrow">›</span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer class="site">
+    SBS아카데미AIX학원 강남점 — 디자인 교육 커리큘럼 아카이브
+  </footer>
+</div>
+
+</body>
+</html>
